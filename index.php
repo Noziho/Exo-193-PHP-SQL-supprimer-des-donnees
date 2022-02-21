@@ -1,5 +1,5 @@
 <?php
-
+require __DIR__ . '/Classes/DB.php';
 /**
  * 1. Importez la table user dans une base de données que vous aurez créée au préalable via PhpMyAdmin
  * 2. En utilisant l'objet de connexion qui a déjà été défini =>
@@ -10,3 +10,13 @@
  *    --> Finalement, vous décidez de supprimer complètement la table
  *    --> Et pour finir, comme vous n'avez plus de table dans la base de données, vous décidez de supprimer aussi la base de données.
  */
+
+$bdd = new DB();
+
+
+$stmt = DB::getInstance()->prepare("
+    DROP DATABASE table_test_php
+    ");
+
+
+$stmt->execute();
